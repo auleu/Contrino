@@ -7,6 +7,8 @@ public class Gun : MonoBehaviour
     [SerializeField]
     private Rigidbody bullet;
     [SerializeField]
+    private Transform bulletSpawner;
+    [SerializeField]
     private Transform barrelEnd;
     [SerializeField]
     private float bulletSpeed;
@@ -27,8 +29,6 @@ public class Gun : MonoBehaviour
     {
         float nextShot = timeLastShot + (1.0f / rateOfFire);
         float isShooting = Input.GetAxis("Fire1");
-        Debug.Log(clipInv);
-
         if (isShooting > 0.5f)
         {
             if (Time.time > nextShot)
