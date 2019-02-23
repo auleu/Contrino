@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class GunPointing : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject focusAim;
+    public GameObject aimFocus;
 
     void Update()
     {
-        this.transform.LookAt(focusAim.transform.position);
+        this.transform.LookAt(aimFocus.transform.position);
     }
 }

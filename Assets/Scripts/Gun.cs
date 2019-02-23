@@ -14,6 +14,8 @@ public class Gun : MonoBehaviour
     private float rateOfFire;
     [SerializeField]
     private int clipSize;
+    [SerializeField]
+    private float spread;
 
     public float recoil;
 
@@ -29,6 +31,10 @@ public class Gun : MonoBehaviour
 
         if (isShooting > 0.5f)
         {
+            if (Time.time > nextShot)
+            {
+                allowFire = true;
+            }
             if (clipInv == 0)
             {
                 allowFire = false;
@@ -38,15 +44,13 @@ public class Gun : MonoBehaviour
                 if (allowFire == true)
                 {
                     Rigidbody bulletInstance;
-                    bulletInstance = Instantiate(bullet, barrelEnd.position, barrelEnd.rotation) as Rigidbody;
-                    bulletInstance.AddForce(barrelEnd.up * bulletSpeed);
+                    bulletSpawner.Rotate(Random.Range(spread * -1f, spread), Random.Range(spread * -1f, spread), 0f, Space.Self);
+                    bulletInstance = Instantiate(bullet, bulletSpawner.position, bulletSpawner.localRotation) as Rigidbody;
+                    bulletInstance.AddForce(bulletSpawner.forward * bulletSpeed);
+                    bulletSpawner.transform.LookAt(barrelEnd);
                     timeLastShot = Time.time;
                     allowFire = false;
                     clipInv--;
-                }
-                if (Time.time > nextShot)
-                {
-                    allowFire = true;
                 }
             }
         }
