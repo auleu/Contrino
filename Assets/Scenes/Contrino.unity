@@ -394,10 +394,9 @@ GameObject:
   - component: {fileID: 346491066}
   - component: {fileID: 346491065}
   - component: {fileID: 346491064}
-  - component: {fileID: 346491070}
-  - component: {fileID: 346491071}
   - component: {fileID: 346491068}
   - component: {fileID: 346491069}
+  - component: {fileID: 346491070}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -496,7 +495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTopSpeed: 15
   playerAcceleration: 2
-  JumpHeight: 2
+  JumpHeight: 4
   rbPlayer: {fileID: 346491069}
   canDoubleJump: 1
 --- !u!54 &346491069
@@ -515,8 +514,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!136 &346491070
-CapsuleCollider:
+--- !u!65 &346491070
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -525,27 +524,9 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: f44c97ac94633b04ca0f2166785b147b, type: 2}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.51
-  m_Height: 0.51
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.5, z: 0}
---- !u!114 &346491071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 346491063}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3bff6ea2f232e4c83aba0a2ccddda0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTopSpeed: 15
-  playerAcceleration: 2
-  JumpHeight: 2
-  rbPlayer: {fileID: 346491069}
-  canDoubleJump: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.34, z: 1}
+  m_Center: {x: 0, y: -0.85, z: 0}
 --- !u!1 &876483294
 GameObject:
   m_ObjectHideFlags: 0
