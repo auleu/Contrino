@@ -9,7 +9,7 @@ public class Gun : MonoBehaviour
     [SerializeField]
     private Transform bulletSpawner;
     [SerializeField]
-    private Transform barrelEnd;
+    private Transform aimingAt;
     [SerializeField]
     private float bulletSpeed;
     [SerializeField]
@@ -18,17 +18,24 @@ public class Gun : MonoBehaviour
     private int clipSize;
     [SerializeField]
     private float spread;
-
-    public float recoil;
+    [SerializeField]
+    private float spreadDamp;
 
     private int clipInv;
     private bool allowFire = false;
     private float timeLastShot = 0.0f;
+    private float cumulativeSpread;
 
     void FixedUpdate()
     {
         float nextShot = timeLastShot + (1.0f / rateOfFire);
         float isShooting = Input.GetAxis("Fire1");
+        cumulativeSpread = cumulativeSpread * (spreadDamp*0.01f);
+        if (cumulativeSpread < 0.5f)
+        {
+            cumulativeSpread = 0f;
+        }
+        Debug.Log(cumulativeSpread);
         if (isShooting > 0.5f)
         {
             if (Time.time > nextShot)
@@ -44,10 +51,11 @@ public class Gun : MonoBehaviour
                 if (allowFire == true)
                 {
                     Rigidbody bulletInstance;
-                    bulletSpawner.Rotate(Random.Range(spread * -1f, spread), Random.Range(spread * -1f, spread), 0f, Space.Self);
+                    this.transform.Rotate(Random.Range(cumulativeSpread * -1f, cumulativeSpread), Random.Range(cumulativeSpread * -1f, cumulativeSpread), 0f, Space.Self);
                     bulletInstance = Instantiate(bullet, bulletSpawner.position, bulletSpawner.localRotation) as Rigidbody;
                     bulletInstance.AddForce(bulletSpawner.forward * bulletSpeed);
-                    bulletSpawner.transform.LookAt(barrelEnd);
+                    cumulativeSpread = cumulativeSpread + spread;
+                    this.transform.LookAt(aimingAt);
                     timeLastShot = Time.time;
                     allowFire = false;
                     clipInv--;

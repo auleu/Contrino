@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 198951249}
   - component: {fileID: 198951251}
   - component: {fileID: 198951250}
+  - component: {fileID: 198951252}
   m_Layer: 0
   m_Name: Aim
   m_TagString: Untagged
@@ -151,7 +152,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198951248}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 674b6e79cfdadc94083cc1cce364d948, type: 3}
   m_Name: 
@@ -206,6 +207,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &198951252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198951248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1699cc5ca90fa564fae55a3fdb292628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &249315672
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +249,6 @@ Transform:
   m_LocalScale: {x: 0.15, y: 0.5, z: 0.15}
   m_Children:
   - {fileID: 1445661219}
-  - {fileID: 919120359}
   m_Father: {fileID: 876483295}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -574,12 +586,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 3896414824138491790, guid: 24983f64187152241839dca4d3d98c21, type: 3}
   bulletSpawner: {fileID: 1445661219}
-  barrelEnd: {fileID: 919120359}
+  aimingAt: {fileID: 198951249}
   bulletSpeed: 500
   rateOfFire: 30
   clipSize: 100
-  spread: 2
-  recoil: 1
+  spread: 1
+  spreadDamp: 0
 --- !u!114 &876483297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -662,36 +674,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 20.188002, y: -36.356003, z: 1.033}
---- !u!1 &919120358
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 919120359}
-  m_Layer: 0
-  m_Name: Barrel End
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &919120359
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919120358}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 249315673}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &1259926580
 GameObject:
   m_ObjectHideFlags: 0

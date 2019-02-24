@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveAim : MonoBehaviour
+public class ControllerMoveAim : MonoBehaviour
 {
     [SerializeField]
     private float amplitude; // distância que o objeto se desloca 
