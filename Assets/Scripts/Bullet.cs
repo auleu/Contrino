@@ -11,8 +11,8 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         GameObject debrisInstance;
-        debrisInstance = Instantiate(debris, this.transform.position, this.transform.rotation) as GameObject;
         Destroy(gameObject);
+        debrisInstance = Instantiate(debris, this.transform.position, this.transform.rotation) as GameObject;
     }
 
     private void Update()

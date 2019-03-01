@@ -4839,4 +4839,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 126cb3a515844f347a34ed4d4c51aa25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  despawnTime: 5
+  despawnTime: 3

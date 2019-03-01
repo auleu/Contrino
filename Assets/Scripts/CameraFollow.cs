@@ -10,6 +10,6 @@ public class CameraFollow : MonoBehaviour
 
     void Update()
     {
-        this.transform.LookAt(Vector3.Lerp(focusObject.transform.position, aimFocus.transform.position, 0.5f));// faz a câmera sempre olhar para o objeto
+        this.transform.LookAt(Vector3.Lerp(focusObject.transform.position, aimFocus.transform.position, 0.25f));// faz a câmera sempre olhar para o objeto
     }
 }

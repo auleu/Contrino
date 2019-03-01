@@ -98,8 +98,8 @@ public class Player3DMovement : MonoBehaviour
         playerVTargetSpeed = vInput * (playerTopSpeed * 0.01f);
 
         //velocidade atual do player. é calculada interpolando entre [a velocidade do player no frame anterior] e [a velocidade alvo] de acordo com a [Aceleração]
-        playerCurrentHSpeed = Mathf.Lerp(playerCurrentHSpeed, playerHTargetSpeed, playerAcceleration * Time.deltaTime);
-        playerCurrentVSpeed = Mathf.Lerp(playerCurrentVSpeed, playerVTargetSpeed, playerAcceleration * Time.deltaTime);
+        playerCurrentHSpeed = Mathf.Lerp(playerCurrentHSpeed, playerHTargetSpeed, playerAcceleration * Time.fixedDeltaTime);
+        playerCurrentVSpeed = Mathf.Lerp(playerCurrentVSpeed, playerVTargetSpeed, playerAcceleration * Time.fixedDeltaTime);
 
         // se ususario nao estiver apertando nem pra frente nem pra tras,
         // deve checar se a velocidade atual é baixa o suficiente pra parar o player de vez
@@ -108,6 +108,7 @@ public class Player3DMovement : MonoBehaviour
             if (Mathf.Abs(playerCurrentHSpeed) < 0.01f)
             {
                 playerCurrentHSpeed = 0.0f;
+                rbPlayer.velocity = new Vector3(0f, 0f, 0f);
             }
         }
         // Se ele ainda estiver apertando pra frente ou pra tras,
@@ -124,6 +125,7 @@ public class Player3DMovement : MonoBehaviour
             if (Mathf.Abs(playerCurrentVSpeed) < 0.01f)
             {
                 playerCurrentVSpeed = 0.0f;
+                rbPlayer.velocity = new Vector3(0f, 0f, 0f);
             }
         }
         else
