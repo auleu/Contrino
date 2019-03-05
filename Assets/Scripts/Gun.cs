@@ -60,7 +60,7 @@ public class Gun : MonoBehaviour
                     Rigidbody bulletInstance;
                     this.transform.Rotate(Random.Range(cumulativeSpread * -1f, cumulativeSpread), Random.Range(cumulativeSpread * -1f, cumulativeSpread), 0f, Space.Self);
                     bulletInstance = Instantiate(bullet, bulletSpawner.position, bulletSpawner.localRotation) as Rigidbody;
-                    bulletInstance.AddForce(bulletSpawner.forward * bulletSpeed);
+                    bulletInstance.AddForce(bulletSpawner.forward * (bulletSpeed*bullet.mass*100));
                     cumulativeSpread = cumulativeSpread + spread;
                     this.transform.LookAt(aimingAt);
                     timeLastShot = Time.time;

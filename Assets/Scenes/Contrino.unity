@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.02
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -535,7 +535,7 @@ Rigidbody:
   m_GameObject: {fileID: 346491063}
   serializedVersion: 2
   m_Mass: 70
-  m_Drag: 0
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -604,11 +604,11 @@ MonoBehaviour:
   bullet: {fileID: 3896414824138491790, guid: 24983f64187152241839dca4d3d98c21, type: 3}
   bulletSpawner: {fileID: 1445661219}
   aimingAt: {fileID: 198951249}
-  bulletSpeed: 300
-  rateOfFire: 30
-  clipSize: 100
+  bulletSpeed: 100
+  rateOfFire: 1
+  clipSize: 10
   spread: 1
-  spreadDamp: 75
+  spreadDamp: 50
 --- !u!114 &876483297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,8 +632,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Color: {r: 0.49699998, g: 0.78301954, b: 1, a: 1}
+  m_Intensity: 1
   m_Range: 1000
   m_SpotAngle: 1
   m_CookieSize: 10
@@ -1220,12 +1220,12 @@ Rigidbody:
   m_GameObject: {fileID: 2085306974}
   serializedVersion: 2
   m_Mass: 70
-  m_Drag: 0
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 32
   m_CollisionDetection: 0
 --- !u!136 &2085306976
 CapsuleCollider:

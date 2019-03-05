@@ -108,7 +108,6 @@ public class Player3DMovement : MonoBehaviour
             if (Mathf.Abs(playerCurrentHSpeed) < 0.01f)
             {
                 playerCurrentHSpeed = 0.0f;
-                rbPlayer.velocity = new Vector3(0f, 0f, 0f);
             }
         }
         // Se ele ainda estiver apertando pra frente ou pra tras,
@@ -125,7 +124,6 @@ public class Player3DMovement : MonoBehaviour
             if (Mathf.Abs(playerCurrentVSpeed) < 0.01f)
             {
                 playerCurrentVSpeed = 0.0f;
-                rbPlayer.velocity = new Vector3(0f, 0f, 0f);
             }
         }
         else

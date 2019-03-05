@@ -25,6 +25,7 @@ public class ControllerAimBehavior : MonoBehaviour
         Vector3 deslocAim = new Vector3(Input.GetAxis("HAim"), Input.GetAxis("VAim"), 0f);
         Vector3 aimDephtCorrection = new Vector3(0f, 0f, -0.5f);
         Vector3 direction = (cam.transform.position - transform.position);
+        SpriteRenderer reticle = GetComponent<SpriteRenderer>();
         RaycastHit hit;
         Component halo = GetComponent("Halo");
         halo.GetType().GetProperty("enabled").SetValue(halo, false, null);
@@ -33,7 +34,7 @@ public class ControllerAimBehavior : MonoBehaviour
         if (Physics.Raycast(cam.transform.position, -direction.normalized, out hit, Mathf.Infinity, layerMask))
         {
             halo.GetType().GetProperty("enabled").SetValue(halo, true, null);
-            Vector3 constrainedDeslocAim = new Vector3(Input.GetAxis("HAim") * hit.collider.bounds.extents.x * 0.75f, Input.GetAxis("VAim") * hit.collider.bounds.extents.y * 0.75f, 0f);
+            Vector3 constrainedDeslocAim = new Vector3(Input.GetAxis("HAim") * hit.collider.bounds.extents.x * 0.66666f, Input.GetAxis("VAim") * hit.collider.bounds.extents.y * 0.66666f, 0f);
 
             if (hit.collider.tag == "Enemy")
             {
@@ -64,6 +65,14 @@ public class ControllerAimBehavior : MonoBehaviour
         if (!aimLocked)
         {
             transform.localPosition = Vector3.Lerp(transform.localPosition, deslocAim * amplitude + aimDephtCorrection, quickness);
+            if (deslocAim == Vector3.zero)
+            {
+                reticle.color = new Color(reticle.color.r, reticle.color.g, reticle.color.b, 0f);
+            }
+            else
+            {
+                reticle.color = new Color(reticle.color.r, reticle.color.g, reticle.color.b, 1f);
+            }
         }
     }
 }
